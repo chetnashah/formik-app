@@ -1,20 +1,20 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src',
   output: {
     path: `${__dirname}/dist`,
     filename: 'bundle.js',
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   module: {
     rules: [
       {// run linter before babel, by using enforce: "pre"
-        test: /\.(js|jsx)$/, loader: 'eslint-loader', enforce: 'pre', exclude: /node_modules/,
+        test: /\.(js|ts)x?$/, loader: 'eslint-loader', enforce: 'pre', exclude: /node_modules/,
       },
-      { test: /\.(js|jsx)$/, loader: 'babel-loader' },
+      { test: /\.(js|ts)x?$/, loader: 'babel-loader' },
     ],
   },
   plugins: [
