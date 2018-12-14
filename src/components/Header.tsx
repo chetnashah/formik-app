@@ -1,7 +1,7 @@
 /* eslint-disable no-confusing-arrow */
 import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import styled from '../styled-components';
+//import PropTypes from 'prop-types';
 
 const NiceHeader = styled.h2`
     font-size: 1.5em;
@@ -9,9 +9,13 @@ const NiceHeader = styled.h2`
     color: violet;
     `;
 
-const Button = styled.button`
-  background: ${props => props.primary ? 'palevioletred' : 'white'};
-  color: ${props => props.primary ? 'white' : 'palevioletred'};
+    type ButtonProps = {
+      huge?: boolean;
+    };
+    // huge is a possible prop that can be passed to Button
+const Button = styled.button<ButtonProps>`
+  background: ${props => props.theme.primary ? 'palevioletred' : 'white'};
+  color: ${props => props.theme.primary ? 'white' : 'palevioletred'};
   font-size: 1em;
   margin: 1em;
   padding: 0.25em 1em;
@@ -26,17 +30,24 @@ const Button = styled.button`
 const OverrideButton = styled(Button)`
     padding: 0px;
     border: 3px solid green;
-    ${props => props.huge ? 'font-size: 2.5em;' : ''}
+    ${props => props.theme.huge ? 'font-size: 2.5em;' : ''}
     border-radius: 8px;
 `;
 
-const Header = ({ name }) => (
+type HeaderProps = {
+  name?: string;
+}
+
+const Header : React.SFC<HeaderProps> = ({ name }) => (
   <NiceHeader>
     {name}
-    <Button primary>
+    <Button huge={true}>
       {'hola'}
     </Button>
-    <OverrideButton huge>
+    <Button>
+      {'lola'}
+    </Button>
+    <OverrideButton>
       {'Override-Button'}
     </OverrideButton>
   </NiceHeader>
