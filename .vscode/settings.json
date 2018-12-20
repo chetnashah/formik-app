@@ -1,0 +1,13 @@
+{
+  "eslint.options": {
+    "configFile": "C:\\Users\\jaysh\\Documents\\programming\\formik-app\\.eslintrc.json"
+  },
+  "eslint.trace.server": "messages",
+  "eslint.alwaysShowStatus": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ]
+}
