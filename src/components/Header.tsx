@@ -1,7 +1,7 @@
 /* eslint-disable no-confusing-arrow */
 import React from 'react';
 import styled from '../styled-components';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const NiceHeader = styled.h2`
     font-size: 1.5em;
@@ -38,9 +38,17 @@ type HeaderProps = {
   name?: string;
 }
 
-const Header : React.SFC<HeaderProps> = ({ name }) => (
+const Header : React.SFC<HeaderProps> = ({ name }) => {
+
+  const Ab = styled.div<HeaderProps>`
+    ${props => props.name === 'ajay' ? 'background-color: red;' : 'background-color: green;'}
+    width: 50px;
+    height: 50px;
+  `;
+  return (
   <NiceHeader>
     {name}
+    <Ab name={name}/>
     <Button huge={true}>
       {'hola'}
     </Button>
@@ -51,7 +59,8 @@ const Header : React.SFC<HeaderProps> = ({ name }) => (
       {'Override-Button'}
     </OverrideButton>
   </NiceHeader>
-);
+  )
+  };
 
 
 Header.defaultProps = {

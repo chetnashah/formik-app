@@ -15,8 +15,9 @@ const App : React.SFC<Props> = (props) => (
     <h1>
       {props.title}
     </h1>
+    
     <Header
-      name="Header"
+      name="ajay"
     />
     <TeamContext.Provider value='grayscale'>
       <Toolbar />
